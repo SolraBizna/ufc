@@ -1,0 +1,21 @@
+* { box-sizing: border-box; }
+
+body { background-color: #ccc; color: #000; }
+input { background-color: #fff; color: #000; width: 100%; }
+
+table { border-collapse: collapse; }
+td, th { border: 1px solid black; }
+.wat { width: 14em; }
+.name { width: 21em; }
+.net { width: 7em; font-weight: bold; }
+.pos { color: #393; }
+.neg { color: #f33; }
+
+table#ingredients td.net { padding-right: 1ex; }
+table#ingredients td.wat { padding-left: 1ex; }
+
+td.wat { text-align: left; }
+td.net { text-align: right; }
+th.buttons { border: 0; width: 5em; }
+td.buttons { text-align: center; width: 5em; }
+button { text-align: center; width: 1.5em; }
