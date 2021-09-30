@@ -249,13 +249,21 @@ class Recipe {
             recipes_table.appendChild(this.trs[n]);
             inname_input.addEventListener("change", () => {
                 self.unaccount();
+                let alt = self.inputs[n][0];
                 self.inputs[n][0] = inname_input.value;
+                if(alt && alt != "") {
+                    get_ingredient(alt).apply(0);
+                }
                 self.account();
                 rebuild_hash();
             });
             outname_input.addEventListener("change", () => {
                 self.unaccount();
+                let alt = self.outputs[n][0];
                 self.outputs[n][0] = outname_input.value;
+                if(alt && alt != "") {
+                    get_ingredient(alt).apply(0);
+                }
                 self.account();
                 rebuild_hash();
             });
@@ -293,11 +301,12 @@ class Recipe {
     }
     hasIngredient(wat) {
         for(let n = 0; this.inputs[n]; ++n) {
-            if(this.inputs[n][0] == wat) return true;
+            if(this.inputs[n][0] == wat && this.inputs[n][1]) return true;
         }
         for(let n = 0; this.outputs[n]; ++n) {
-            if(this.outputs[n][0] == wat) return true;
+            if(this.outputs[n][0] == wat && this.outputs[n][1]) return true;
         }
+        return false;
     }
     setCount(nu) {
         this.unaccount();
